@@ -1,0 +1,639 @@
+---
+output:
+  pdf_document:
+    latex_engine: pdflatex
+    fig_caption: yes
+    keep_tex: yes
+documentclass: article
+classoption: a4paper
+geometry: "left=0cm,right=0.2cm,top=1cm,bottom=0.5cm"
+header-includes: \usepackage{fancyhdr}
+  \usepackage{xcolor}
+    \usepackage{librebaskerville}
+  \usepackage[fontsize=10pt]{scrextend}
+  \usepackage{float}
+  \restylefloat{table}
+  \usepackage{multicol}
+  \usepackage{wrapfig}
+  \usepackage{mathptmx}
+  \usepackage{caption}
+  \usepackage{lipsum}
+  \usepackage{graphicx}
+  \usepackage{caption}
+  \usepackage{array}
+  \usepackage{enumitem}
+  \usepackage{booktabs}
+  \usepackage{tabularx}
+  \usepackage{colortbl}
+  \usepackage{datetime}
+  \usepackage[default,oldstyle,scale=0.95]{opensans}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancypagestyle{plain}{\pagestyle{fancy}}  
+  \setlength{\headheight}{12 pt}
+  \setlength{\textheight}{0.9\textheight}
+  \pagenumbering{gobble}
+  \setlength{\belowcaptionskip}{-10pt}
+  \captionsetup{belowskip=0pt}
+  \setlength{\parskip}{0cm}
+  \setlength{\parindent}{0cm}
+  \graphicspath{ {"C:/Users/wb522556/WBG/Vincenzo Di Maro - Agile/06 - Agile Productivity Radar/DataWork/Task Allocation Check in/Report/Pilot/Outputs/Raw/"} }
+  \newcommand{\hideFromPandoc}[1]
+  \hideFromPandoc{
+    \let\Begin\begin
+    \let\End\end
+  }
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+#run the backend code first before knitting
+
+load("~/GitHub/Agile_Productivity_Radar/DataWork/Task Allocation Check in/Report/Pilot/Code/R Markdown/backend_v2.RData")
+
+options(tinytex.verbose = TRUE)
+```
+
+
+```{r backend, eval = FALSE, echo=FALSE}
+
+#PART 3: Set folder folder paths --------------------------------------------
+
+  #-------------#
+  # Root folder #
+  #-------------#
+  
+  # Add your username and folder path here (for Windows computers)
+  # To find out what your username is, type Sys.getenv("USERNAME")
+  if (Sys.getenv("USERNAME") == "wb522556") {
+    
+    projectFolder  <- "C:/Users/wb522556/Documents/GitHub/Agile_Productivity_Radar/DataWork/Task Allocation Check in/Report/Pilot/Code/R Markdown"
+    
+  }
+```
+ 
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
+\begin{center}
+  \begin {minipage} {20cm}
+    \begin{center}
+      \includegraphics[height=30mm]{header.pdf} \\
+      \Large{`r casename` || Between `r startdate` to `r enddate`}
+    \end{center}
+  \end{minipage}
+\end{center}
+
+\begin{table}[H]
+  \begin{center}
+    \begin{tabular}{m{6cm} m{6cm} m{6cm}}
+      \begin {minipage} {6cm}
+        \begin{center}
+          \includegraphics[width=30mm, height=30mm]{agile-report-icons_technical.pdf} \\
+          \Large{\textbf{`r admin_act_perc` percent}} \\
+          \large{ of your time was spent on} \\ 
+          \Large{\textbf{`r admin_act_nme` work.}} \\
+          \vspace{10mm}\includegraphics[width=30mm, height=30mm]{agile-report-icons_meeting.pdf} \\
+          \Large{\textbf{`r withsomeone_perc` percent}} \\
+          \large{of your time was spent on} \\
+          \Large{\textbf{`r withsomeone_nme`.}} 
+        \end{center}
+      \end{minipage}
+      &
+      \begin {minipage} {6cm}
+        \begin{center}
+          \includegraphics[width=30mm, height=30mm]{agile-report-icons_important.pdf} \\
+          \Large{\textbf{`r imp_act_s_perc` percent}} \\
+          \large{of your time was spent on} \\
+          \Large{\textbf{`r imp_act_s_nme` work.}} \\
+          \vspace{10mm}\includegraphics[width=30mm, height=30mm]{agile-report-icons_planned.pdf} \\
+          \Large{\textbf{`r planned_act_perc` percent}} \\
+          \large{of your time was spent on} \\
+          \Large{\textbf{`r planned_act_nme` work.}}
+        \end{center}
+      \end{minipage}
+      &
+      \begin {minipage} {6cm}
+        \begin{center}
+          \includegraphics[width=30mm, height=30mm]{agile-report-icons_analytical.pdf} \\
+          \Large{\textbf{`r cat_proj_perc` percent}} \\
+          \large{of your time was spent on} \\
+          \Large{\textbf{`r cat_proj_nme` projects.}} \\
+          \vspace{10mm}\includegraphics[width=30mm, height=30mm]{agile-report-icons_task.pdf} \\
+          \Large{\textbf{`r avg_act_dur` hours}} \\
+          \large{was the average duration of} \\
+          \Large{\textbf{your tasks.}}
+        \end{center}
+      \end{minipage} \\
+      \vspace{1mm} \\
+      \hline 
+      \vspace{1mm}
+    \end{tabular}
+    \begin{tabular}{m{2cm} m{7cm} m{5cm} m{2cm}}
+      \multicolumn{4}{c}{\Large{How you described your activities | Word cloud}} \\
+      \begin{minipage} {2cm}
+        \includegraphics[width=20mm, height=70mm]{agile-report-icons_activities.pdf}     
+      \end{minipage}
+      &
+      \begin {minipage} {7cm}
+        \includegraphics[trim=80 80 80 80, clip, width=70mm, height=70mm]{wordcloud.pdf}     
+      \end{minipage}
+      & 
+      \begin{minipage}{5cm}
+        \begin{flushleft}
+          \Large{\textbf{`r freqmax_word_n`}} \\
+          \large{were your most popular words to describe your activities.}
+        \end{flushleft}
+      \end{minipage}
+      &
+      \begin{minipage} {2cm}
+        \includegraphics[width=20mm, height=70mm]{agile-report-icons_designing.pdf}     
+      \end{minipage}
+    \end{tabular}
+  \end{center}
+  \begin{center}
+    \small{Produced on \today\ \currenttime}
+  \end{center}
+\end{table}
+
+\newpage
+
+\definecolor{Blue}{rgb}{0,0.7,1}
+\definecolor{MidnightBlue}{rgb}{0.1,0.1,0.4}
+
+\begin{table}[H]
+  \begin{center}
+    \begin{tabular}{m{6cm} m{12cm}}
+      \multicolumn{2}{c}{\Large{\textbf{Activity Type}}} \\
+      \begin{minipage}{6cm}
+        \Large{\textbf{\textcolor{Blue}{`r type_act_chh` hours}}} \\
+        \large{in a week (on average)} \\
+        \Large{\textbf{\textcolor{Blue}{on `r type_act_nme`}}} \\
+        \vspace{1mm} \\
+        \Large{i.e. \textbf{`r type_act_perc` percent} of your total time recorded.}
+      \end{minipage}
+      &
+      \begin {minipage} {12cm}
+        \begin{center}
+          \includegraphics[width=110mm, height=55mm]{type_act_plot.pdf}
+        \end{center}
+      \end{minipage} \\
+      \hline
+      \vspace{0.1mm}
+    \end{tabular}
+    \begin{tabular}{m{11cm} m{7cm}}
+      \multicolumn{2}{c}{\Large{\textbf{Meetings}}} \\
+      \begin {minipage} {11cm}
+        \begin{center}
+          \includegraphics[width=110mm, height=55mm]{withsomeone_plot.pdf} 
+        \end{center}
+      \end{minipage}
+      & 
+      \begin{minipage}{7cm}
+        \Large{\textbf{\textcolor{Blue}{`r withsomeone_chh` hours}}} \\
+        \large{in a week (on average)} \\
+        \Large{\textbf{\textcolor{Blue}{on `r withsomeone_nme`}}} \\
+        \vspace{1mm} \\
+        \Large{i.e. \textbf{`r withsomeone_perc` percent} of your total time recorded.}
+      \end{minipage} \\
+      \hline
+      \vspace{0.1mm}
+    \end{tabular}
+    \begin{tabular}{m{7cm} m{11cm}}
+      \multicolumn{2}{c}{\Large{\textbf{Administrative vs Technical}}} \\
+      \begin{minipage}{7cm}
+        \Large{\textbf{\textcolor{Blue}{`r admin_act_chh` hours}}} \\
+        \large{in a week (on average)} \\
+        \Large{\textbf{\textcolor{Blue}{on `r admin_act_nme` work.}}} \\
+        \vspace{1mm} \\
+        \Large{i.e. \textbf{`r admin_act_perc` percent} of your total time recorded.}
+      \end{minipage}
+      &
+      \begin {minipage} {11cm}
+        \begin{center}
+          \includegraphics[width=110mm, height=55mm]{admin_act_plot.pdf}
+        \end{center}
+      \end{minipage} \\
+      \hline
+      \vspace{0.1mm}
+      \end{tabular}
+      \begin{tabular}{m{11cm} m{7cm}}
+        \multicolumn{2}{c}{\Large{\textbf{Planned vs Unplanned}}} \\
+        \begin {minipage} {11cm}
+          \begin{center}
+            \includegraphics[width=110mm, height=55mm]{planned_act_plot.pdf}
+          \end{center}
+        \end{minipage}
+        &
+        \begin{minipage}{7cm}
+          \Large{\textbf{\textcolor{Blue}{`r planned_act_chh` hours}}} \\
+          \large{in a week (on average)} \\
+          \Large{\textbf{\textcolor{Blue}{on `r planned_act_nme` tasks.}}} \\
+          \vspace{1mm} \\
+          \Large{i.e. \textbf{`r planned_act_perc` percent} of your total time recorded.}
+        \end{minipage} \\
+        \hline
+        \vspace{0.1mm}
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\newpage
+
+\definecolor{Blueviolet}{rgb}{0.7,0.2,1}
+\definecolor{Plum}{rgb}{0.9,0.5,0.7}
+
+\begin{table}[H]
+  \begin{center}
+    \begin{tabular}{m{7cm} m{11cm}}
+      \multicolumn{2}{c}{\Large{\textbf{Project Category}}} \\
+      \begin{minipage}{7cm}
+        \Large{\textbf{\textcolor{Blue}{`r cat_proj_chh` hours}}} \\
+        \large{in a week (on average)} \\
+        \Large{\textbf{\textcolor{Blue}{on `r cat_proj_nme` projects.}}} \\
+        \vspace{1mm} \\
+        \Large{i.e. \textbf{`r cat_proj_perc` percent} of your total time recorded.}
+      \end{minipage}
+      & 
+      \begin {minipage} {11cm}
+        \begin{center}
+          \includegraphics[width=110mm, height=55mm]{cat_proj_plot.pdf}
+        \end{center}
+      \end{minipage} \\
+      \vspace{0.1mm} \\
+      \hline
+      \vspace{0.1mm}
+    \end{tabular}
+      \begin{tabular}{m{12cm} m{6cm}}
+      \multicolumn{2}{c}{\Large{\textbf{Combined Categories for Tasks}}} \\
+      \begin {minipage} {12cm}
+        \begin{center}
+          \includegraphics[width=120mm, height=75mm]{combined_plot.pdf}
+        \end{center}
+      \end{minipage} &       
+      \begin{minipage}{6cm}
+        \Large{\textbf{\textcolor{Blue}{`r combined_chh` hours}}} \\
+        \large{in a week (on average)} \\
+        \Large{\textbf{\textcolor{Blue}{on `r combined_nme`.}}} \\
+        \vspace{1mm}\Large{i.e. \textbf{`r combined_perc` percent} of your total time recorded.}
+      \end{minipage} \\
+      \vspace{0.1mm} \\
+      \hline
+      \vspace{0.1mm}
+    \end{tabular}
+      \begin{tabular}{m{19cm}}
+        \begin{center}
+        \large{\textbf{Your Activities over Time}}
+      \end{center}
+      \begin {minipage} {19cm}
+        \begin{center}
+          \includegraphics[width=190mm, height=75mm]{timetrend_plot.pdf}
+        \end{center}
+      \end{minipage} \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\newpage
+\begin{table}[H]
+  \begin{center}
+    \begin{tabular}{m{7cm} m{11cm}}
+      \multicolumn{2}{c}{\Large{\textbf{Importance of Tasks}}} \\
+      \begin{minipage}{7cm}
+        \Large{\textbf{\textcolor{Blue}{`r imp_act_s_chh` hours}}} \\
+        \large{in a week (on average)} \\
+        \Large{\textbf{\textcolor{Blue}{on `r imp_act_s_nme` tasks.}}} \\
+        \vspace{1mm}\Large{i.e. \textbf{`r imp_act_s_perc` percent} of your total time recorded.}
+      \end{minipage}
+      & 
+      \begin {minipage} {11cm}
+        \begin{center}
+          \includegraphics[width=110mm, height=55mm]{imp_act_s_plot.pdf}
+        \end{center}
+      \end{minipage} \\
+      \vspace{0.1mm} \\
+      \hline
+      \vspace{0.1mm}
+    \end{tabular}
+    \begin{tabular}{m{11cm} m{7cm}}
+      \multicolumn{2}{c}{\Large{\textbf{Your Unimportant Activities}}} \\
+      \begin {minipage} {11cm}
+        \begin{center}
+          \includegraphics[width=110mm, height=80mm]{type1_plot.pdf}
+        \end{center}
+      \end{minipage} 
+      &
+      \begin{minipage}{7cm}
+        \begin{flushleft}
+          \Large{\underline{\textbf{\textcolor{Blueviolet}{`r type_pie1_p` percent}}}} \\
+          \small{of your unimportant activities} \\
+          \Large{\underline{\textbf{\textcolor{Blueviolet}{i.e. `r type_pie1_hh` hours}}}} \\
+          \small{in a week (on average) were spent} \\
+          \vspace{3mm}\large{\textbf{on `r type_pie1_n`}} 
+        \end{flushleft}
+      \end{minipage} \\
+      \vspace{0.1mm} \\
+      \hline
+      \vspace{0.1mm}
+    \end{tabular}
+    \begin{tabular}{m{7cm} m{11cm}}
+      \multicolumn{2}{c}{\Large{\textbf{Your Important Activities}}} \\
+      \begin{minipage}{7cm}
+        \begin{flushright}
+          \Large{\underline{\textbf{\textcolor{Plum}{`r type_pie2_p` percent}}}} \\
+          \small{of your important activities} \\
+          \Large{\underline{\textbf{\textcolor{Plum}{i.e. `r type_pie2_hh` hours}}}} \\
+          \small{in a week (on average) were spent} \\
+          \vspace{3mm}\large{\textbf{on `r type_pie2_n`}} 
+        \end{flushright}
+      \end{minipage} 
+      &
+      \begin {minipage} {11cm}
+        \begin{center}
+          \includegraphics[width=110mm, height=80mm]{type2_plot.pdf}
+        \end{center}
+      \end{minipage} \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\newpage
+
+\begin{center}
+  \Huge{Your Data at a Glance}
+\end{center}
+
+\hrulefill
+  
+\begin{center}
+  \large{\textbf{The projects you worked on}}
+\end{center}
+  
+```{r df_proj}
+library(knitr)
+library(kableExtra)
+
+names(df_proj)[names(df_proj) == "category.project"] <- "Category"
+names(df_proj)[names(df_proj) == "instanceccategory.project"] <- "Your Data"
+names(df_proj)[names(df_proj) == "instancecategory.project"] <- "All Data"
+names(df_proj)[names(df_proj) == "freq.cinstancecategory.project"] <- "Your Data"
+names(df_proj)[names(df_proj) == "freq.instancecategory.project"] <- "All Data"
+names(df_proj)[names(df_proj) == "hh.actccategory.project"] <- "Your Data"
+names(df_proj)[names(df_proj) == "hh.actcategory.project"] <- "All Data"
+names(df_proj)[names(df_proj) == "avg.hhccategory.project"] <- "Your Data"
+names(df_proj)[names(df_proj) == "avg.hhcategory.project"] <- "All Data"
+names(df_proj)[names(df_proj) == "category.project.cpr"] <- "Your Data"
+names(df_proj)[names(df_proj) == "category.project.pr"] <- "All Data"
+
+kable(df_proj, 
+      "latex", 
+      booktabs = T, 
+      row.names = FALSE,
+      escape = F,
+      align = "c") %>%
+  kable_styling(font_size = 9) %>%
+  column_spec(c(1,
+                3,
+                5,
+                7,
+                9,
+                11)
+              , border_right = T) %>%
+    column_spec(c(2,
+                4,
+                6,
+                8,
+                10),
+                bold = T) %>%
+  add_header_above(c(" " = 1, 
+                       "Instances" = 2, 
+                       "Frequency (%)" = 2, 
+                       "Total Time (hrs)" = 2,
+                       "Average Time (hrs)" = 2,
+                       "Total Time (%)" = 2), bold = T)
+```
+\hrulefill
+
+\begin{center}
+  \large{\textbf{Your Meetings vs Independent Work}}
+\end{center}
+  
+```{r df_withsomeone}
+library(knitr)
+library(kableExtra)
+
+names(df_withsomeone)[names(df_withsomeone) == "withsomeone"] <- "Category"
+names(df_withsomeone)[names(df_withsomeone) == "instancecwithsomeone"] <- "Your Data"
+names(df_withsomeone)[names(df_withsomeone) == "instancewithsomeone"] <- "All Data"
+names(df_withsomeone)[names(df_withsomeone) == "freq.cinstancewithsomeone"] <- "Your Data"
+names(df_withsomeone)[names(df_withsomeone) == "freq.instancewithsomeone"] <- "All Data"
+names(df_withsomeone)[names(df_withsomeone) == "hh.actcwithsomeone"] <- "Your Data"
+names(df_withsomeone)[names(df_withsomeone) == "hh.actwithsomeone"] <- "All Data"
+names(df_withsomeone)[names(df_withsomeone) == "avg.hhcwithsomeone"] <- "Your Data"
+names(df_withsomeone)[names(df_withsomeone) == "avg.hhwithsomeone"] <- "All Data"
+names(df_withsomeone)[names(df_withsomeone) == "withsomeone.cpr"] <- "Your Data"
+names(df_withsomeone)[names(df_withsomeone) == "withsomeone.pr"] <- "All Data"
+
+kable(df_withsomeone, 
+      "latex", 
+      booktabs = T, 
+      row.names = FALSE,
+      escape = F,
+      align = "c") %>%
+  kable_styling(font_size = 9) %>%
+  column_spec(c(1,
+                3,
+                5,
+                7,
+                9,
+                11)
+              , border_right = T) %>%
+    column_spec(c(2,
+                4,
+                6,
+                8,
+                10),
+                bold = T) %>%
+  add_header_above(c(" " = 1, 
+                       "Instances" = 2, 
+                       "Frequency (%)" = 2, 
+                       "Total Time (hrs)" = 2,
+                       "Average Time (hrs)" = 2,
+                       "Total Time (%)" = 2), bold = T)
+```
+\hrulefill
+
+\begin{center}
+  \large{\textbf{Your Administrative vs Technical Work}}
+\end{center}
+  
+```{r df_admin}
+library(knitr)
+library(kableExtra)
+
+names(df_admin)[names(df_admin) == "admin.activity"] <- "Category"
+names(df_admin)[names(df_admin) == "instancecadmin.activity"] <- "Your Data"
+names(df_admin)[names(df_admin) == "instanceadmin.activity"] <- "All Data"
+names(df_admin)[names(df_admin) == "freq.cinstanceadmin.activity"] <- "Your Data"
+names(df_admin)[names(df_admin) == "freq.instanceadmin.activity"] <- "All Data"
+names(df_admin)[names(df_admin) == "hh.actcadmin.activity"] <- "Your Data"
+names(df_admin)[names(df_admin) == "hh.actadmin.activity"] <- "All Data"
+names(df_admin)[names(df_admin) == "avg.hhcadmin.activity"] <- "Your Data"
+names(df_admin)[names(df_admin) == "avg.hhadmin.activity"] <- "All Data"
+names(df_admin)[names(df_admin) == "admin.activity.cpr"] <- "Your Data"
+names(df_admin)[names(df_admin) == "admin.activity.pr"] <- "All Data"
+
+kable(df_admin, 
+      "latex", 
+      booktabs = T, 
+      row.names = FALSE,
+      escape = F,
+      align = "c") %>%
+  kable_styling(font_size = 9) %>%
+  column_spec(c(1,
+                3,
+                5,
+                7,
+                9,
+                11)
+              , border_right = T) %>%
+    column_spec(c(2,
+                4,
+                6,
+                8,
+                10),
+                bold = T) %>%
+  add_header_above(c(" " = 1, 
+                       "Instances" = 2, 
+                       "Frequency (%)" = 2, 
+                       "Total Time (hrs)" = 2,
+                       "Average Time (hrs)" = 2,
+                       "Total Time (%)" = 2), bold = T)
+```
+\hrulefill
+
+\begin{center}
+  \large{\textbf{Your Planned vs Unplanned Work}}
+\end{center}
+  
+```{r df_planned}
+library(knitr)
+library(kableExtra)
+
+names(df_planned)[names(df_planned) == "planned"] <- "Category"
+names(df_planned)[names(df_planned) == "instancecplanned"] <- "Your Data"
+names(df_planned)[names(df_planned) == "instanceplanned"] <- "All Data"
+names(df_planned)[names(df_planned) == "freq.cinstanceplanned"] <- "Your Data"
+names(df_planned)[names(df_planned) == "freq.instanceplanned"] <- "All Data"
+names(df_planned)[names(df_planned) == "hh.actcplanned"] <- "Your Data"
+names(df_planned)[names(df_planned) == "hh.actplanned"] <- "All Data"
+names(df_planned)[names(df_planned) == "avg.hhcplanned"] <- "Your Data"
+names(df_planned)[names(df_planned) == "avg.hhplanned"] <- "All Data"
+names(df_planned)[names(df_planned) == "planned.cpr"] <- "Your Data"
+names(df_planned)[names(df_planned) == "planned.pr"] <- "All Data"
+
+kable(df_planned, 
+      "latex", 
+      booktabs = T, 
+      row.names = FALSE,
+      escape = F,
+      align = "c") %>%
+  kable_styling(font_size = 9) %>%
+  column_spec(c(1,
+                3,
+                5,
+                7,
+                9,
+                11)
+              , border_right = T) %>%
+    column_spec(c(2,
+                4,
+                6,
+                8,
+                10),
+                bold = T) %>%
+  add_header_above(c(" " = 1, 
+                       "Instances" = 2, 
+                       "Frequency (%)" = 2, 
+                       "Total Time (hrs)" = 2,
+                       "Average Time (hrs)" = 2,
+                       "Total Time (%)" = 2), bold = T)
+```
+\hrulefill
+
+\begin{center}
+  \large{\textbf{Your Important vs Unimportant Work}}
+\end{center}
+  
+```{r df_imp}
+library(knitr)
+library(kableExtra)
+
+names(df_imp)[names(df_imp) == "importance"] <- "Category"
+names(df_imp)[names(df_imp) == "instancecimportance"] <- "Your Data"
+names(df_imp)[names(df_imp) == "instanceimportance"] <- "All Data"
+names(df_imp)[names(df_imp) == "freq.cinstanceimportance"] <- "Your Data"
+names(df_imp)[names(df_imp) == "freq.instanceimportance"] <- "All Data"
+names(df_imp)[names(df_imp) == "hh.actcimportance"] <- "Your Data"
+names(df_imp)[names(df_imp) == "hh.actimportance"] <- "All Data"
+names(df_imp)[names(df_imp) == "avg.hhcimportance"] <- "Your Data"
+names(df_imp)[names(df_imp) == "avg.hhimportance"] <- "All Data"
+names(df_imp)[names(df_imp) == "importance.cpr"] <- "Your Data"
+names(df_imp)[names(df_imp) == "importance.pr"] <- "All Data"
+
+kable(df_imp, 
+      "latex", 
+      booktabs = T, 
+      row.names = FALSE,
+      escape = F,
+      align = "c") %>%
+  kable_styling(font_size = 9) %>%
+  column_spec(c(1,
+                3,
+                5,
+                7,
+                9,
+                11)
+              , border_right = T) %>%
+    column_spec(c(2,
+                4,
+                6,
+                8,
+                10),
+                bold = T) %>%
+  add_header_above(c(" " = 1, 
+                       "Instances" = 2, 
+                       "Frequency (%)" = 2, 
+                       "Total Time (hrs)" = 2,
+                       "Average Time (hrs)" = 2,
+                       "Total Time (%)" = 2), bold = T)
+```
+      
+\newpage
+
+\begin{center}
+  \large{\textbf{All your data}}
+\end{center}
+  
+```{r df_act}
+library(knitr)
+library(kableExtra)
+
+names(df_act)[names(df_act) == "activity.descr"] <- "Activity Description"
+names(df_act)[names(df_act) == "category.project"] <- "Project Category"
+names(df_act)[names(df_act) == "withsomeone"] <- "Meetings"
+names(df_act)[names(df_act) == "admin.activity"] <- "Administrative Work"
+names(df_act)[names(df_act) == "importance"] <- "Importance"
+names(df_act)[names(df_act) == "activity.duration"] <- "Duration (hrs)"
+kable(df_act, 
+      "latex", 
+      booktabs = T, 
+      row.names = FALSE,
+      escape = F) %>%
+  kable_styling(latex_options = "scale_down", font_size = 9)
+
+```
+\hrulefill
+

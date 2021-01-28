@@ -1,0 +1,510 @@
+---
+output:
+  pdf_document:
+    latex_engine: pdflatex
+    fig_caption: yes
+    keep_tex: yes
+documentclass: article
+classoption: a4paper
+geometry: "left=2cm,right=2cm,top=1cm,bottom=1cm"
+header-includes: \usepackage{fancyhdr}
+  \usepackage{booktabs,xcolor}
+  \pagestyle{empty}
+  \renewcommand{\headrulewidth}{0pt}
+  \definecolor{L4A_orange}{RGB}{237,125,49}
+  \fancypagestyle{plain}{\pagestyle{fancy}}  
+  \setlength{\headheight}{20 pt}
+  \setlength{\footskip}{20 pt}
+  \setlength{\textheight}{0.9\textheight}
+  \pagenumbering{gobble}
+  \usepackage{librebaskerville}
+  \usepackage[fontsize=10pt]{scrextend}
+  \usepackage{float}
+  \restylefloat{table}
+  \usepackage{xcolor}
+  \usepackage{multicol}
+  \usepackage{wrapfig}
+  \usepackage{mathptmx}
+  \usepackage{caption}
+  \setlength{\belowcaptionskip}{-10pt}
+  \captionsetup{belowskip=0pt}
+  \setlength{\parskip}{0cm}
+  \setlength{\parindent}{0cm}
+  \usepackage{lipsum}
+  \usepackage{graphicx}
+  \graphicspath{ {/Users/wb522556/WBG/Vincenzo Di Maro - Agile/06 - Agile Productivity Radar/DataWork/Task Allocation Check in/Report/Dummy/Outputs/Raw/} }
+  \usepackage{array}
+  \usepackage{enumitem}
+  \usepackage{booktabs}
+  \newcommand{\hideFromPandoc}[1]{#1}
+  \hideFromPandoc{
+    \let\Begin\begin
+    \let\End\end
+  }
+  \usepackage{caption}
+  \captionsetup{skip=0pt}
+
+
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+#run the backend code first before knitting
+load("backend.RData")
+
+options(tinytex.verbose = TRUE)
+```
+
+
+```{r backend, eval = FALSE, echo=FALSE}
+
+#PART 3: Set folder folder paths --------------------------------------------
+
+  #-------------#
+  # Root folder #
+  #-------------#
+  
+  # Add your username and folder path here (for Windows computers)
+  # To find out what your username is, type Sys.getenv("USERNAME")
+  if (Sys.getenv("USERNAME") == "wb522556") {
+    
+    projectFolder  <- "C:/Users/wb522556/Documents/GitHub/Agile_Productivity_Radar/DataWork/Task Allocation Check in/Report/Dummy/Code/R Markdown"
+    
+  }
+```
+ 
+---
+title: "Your Tasks this Period | `r casename` "
+author: "**Period**: `r startdate` to `r enddate`" 
+output: pdf_document
+---
+
+
+\hrulefill
+     \begin{center}
+     \Large{\textbf{Executive Summary}}
+     \end{center}
+
+
+\begin{table}[h!]
+     \begin{center}
+     \begin{tabular}{m{5cm} m{5cm} m{5cm}}
+     \begin {minipage} {5cm}
+     \begin{center}
+     \includegraphics[width=25mm, height=25mm]{icon1.jpg}
+     \end{center}
+     \end{minipage}
+      &
+     \begin {minipage} {5cm}
+          \begin{center}
+     \includegraphics[width=25mm, height=25mm]{icon2.jpg}
+          \end{center}
+     \end{minipage}
+     &
+     \begin {minipage} {5cm}
+          \begin{center}
+     \includegraphics[width=25mm, height=25mm]{icon3.jpg}
+          \end{center}
+     \end{minipage}
+      \end{tabular}
+      \end{center}
+      \end{table}
+
+
+\begin{table}[h!]
+     \begin{center}
+     \begin{tabular}{m{0.5cm} m{4cm} m{0.5cm} m{4cm} m{0.5cm} m{4cm} m{0.5cm}}
+    \begin {minipage} {0.5cm}
+     \end{minipage}
+      &
+     \begin {minipage} {4cm}
+     \Large{\textbf{\textcolor{blue}{\emph{`r admin_perc` percent}}} of your time was spent on administrative work.}
+     \end{minipage}
+      &
+      \begin {minipage} {0.5cm}
+     \end{minipage}
+      &
+     \begin {minipage} {4cm}
+     \Large{\textbf{\textcolor{blue}{\emph{`r imp_act_perc` percent}}} of your time was spent on important work.}
+     \end{minipage}
+     &
+    \begin {minipage} {0.5cm}
+     \end{minipage}
+      &
+     \begin {minipage} {4cm}
+     \Large{\textbf{\textcolor{blue}{\emph{`r analytical_perc` percent}}} of your time was spent on analytical projects.}
+     \end{minipage}
+     &
+    \begin {minipage} {0.5cm}
+     \end{minipage}
+      \end{tabular}
+      \end{center}
+      \end{table}
+
+
+\begin{table}[h!]
+     \begin{center}
+     \begin{tabular}{m{5cm} m{5cm} m{5cm}}
+     \begin {minipage} {5cm}
+          \begin{center}
+     \includegraphics[width=25mm, height=25mm]{icon5.jpg}
+          \end{center}
+     \end{minipage}
+      &
+     \begin {minipage} {5cm}
+          \begin{center}
+     \includegraphics[width=25mm, height=25mm]{icon6.jpg}
+          \end{center}
+     \end{minipage}
+     &
+     \begin {minipage} {5cm}
+          \begin{center}
+     \includegraphics[width=25mm, height=25mm]{icon4.jpg}
+          \end{center}
+     \end{minipage}
+      \end{tabular}
+      \end{center}
+      \end{table}
+
+
+\begin{table}[h!]
+     \begin{center}
+     \begin{tabular}{m{0.5cm} m{4cm} m{0.5cm} m{4cm} m{0.5cm} m{4cm} m{0.5cm}}
+         \begin {minipage} {0.5cm}
+     \end{minipage}
+      &
+     \begin {minipage} {4cm}
+     \Large{\textbf{\textcolor{blue}{\emph{`r meeting_perc` percent}}} of your time was spent on meetings.}
+     \end{minipage}
+      &
+      \begin {minipage} {0.5cm}
+     \end{minipage}
+      &
+     \begin {minipage} {4cm}
+     \Large{\textbf{\textcolor{blue}{\emph{`r planned_perc` percent}}} of your time was spent on planned work.}
+     \end{minipage}
+     &
+    \begin {minipage} {0.5cm}
+     \end{minipage}
+      &
+     \begin {minipage} {4cm}
+     \Large{\textbf{\textcolor{blue}{\emph{`r avg_act_dur` hours}}} was the average duration of each task you performed this period.}
+     \end{minipage}
+     &
+    \begin {minipage} {0.5cm}
+     \end{minipage}
+      \end{tabular}
+      \end{center}
+      \end{table}
+    
+\begin{table}[h!]
+     \begin{center}
+     \begin{tabular}{m{8cm} m{8cm}}
+     \begin {minipage} {8cm}
+     \includegraphics[width=60mm, height=60mm]{wordcloud.jpg}
+     \end{minipage}
+      & 
+      \begin{minipage}{8cm}
+      \Large{This is a snapshot of all your activity descriptions by frequency of occurrence. \textbf{\textcolor{blue}{\emph{`r type_act_perc` percent}}} of your time was spent on \textbf{\textcolor{blue}{\emph{`r type_act_nme`}}}.}
+      \end{minipage}
+      \end{tabular}
+      \end{center}
+      \end{table}
+
+
+\newpage
+
+
+
+
+\begin{center}
+\Large{\textbf{Meetings}}
+ \end{center}
+ 
+\begin{table}[h!]
+     \begin{center}
+     \begin{tabular}{m{10cm} m{7cm}}
+     \begin {minipage} {10cm}
+     \includegraphics[width=100mm, height=60mm]{withsomeone_plot.jpg}
+     \end{minipage}
+      & 
+      \begin{minipage}{7cm}
+      \Large{As a proportion of total time spent over the work-week, you have been engaged with: \textcolor{blue}{meetings} for \textbf{\textcolor{blue}{\emph{`r meeting_perc` percent}}} of the time, which totaled `r meeting_chh` hours.}
+      \end{minipage}
+      \end{tabular}
+      \end{center}
+      \end{table}
+
+
+\begin{center}
+\Large{\textbf{Activity Type}}
+ \end{center}
+\begin{table}[h!]
+     \begin{center}
+     \begin{tabular}{m{10cm} m{7cm}}
+     \begin {minipage} {10cm}
+     \includegraphics[width=100mm, height=60mm]{type_act_plot.jpg}
+     \end{minipage}
+      & 
+      \begin{minipage}{7cm}
+      \Large{As a proportion of total time spent over the work-week, you have been engaged with: \textcolor{blue}{`r type_act_nme`} for \textbf{\textcolor{blue}{\emph{`r type_act_perc` percent}}} of the time, which totaled `r type_act_chh` hours.}
+      \end{minipage}
+      \end{tabular}
+      \end{center}
+      \end{table}
+
+
+\begin{center}
+\Large{\textbf{Projects}}
+ \end{center}
+\begin{table}[h!]
+     \begin{center}
+     \begin{tabular}{m{10cm} m{7cm}}
+     \begin {minipage} {10cm}
+     \includegraphics[width=100mm, height=60mm]{cat_proj_plot.jpg}
+     \end{minipage}
+      & 
+      \begin{minipage}{7cm}
+      \Large{As a proportion of total time spent over the work-week, you have been engaged with: \textcolor{blue}{analytical projects} for \textbf{\textcolor{blue}{\emph{`r analytical_perc` percent}}} of the time, which totaled `r analytical_chh` hours.}
+      \end{minipage}
+      \end{tabular}
+      \end{center}
+      \end{table}
+      
+\newpage
+
+
+\begin{center}
+\Large{\textbf{Administrative Work}}
+ \end{center}
+\begin{table}[h!]
+     \begin{center}
+     \begin{tabular}{m{10cm} m{7cm}}
+     \begin {minipage} {10cm}
+     \includegraphics[width=100mm, height=60mm]{admin_act_plot.jpg}
+     \end{minipage}
+      & 
+      \begin{minipage}{7cm}
+      \Large{As a proportion of total time spent over the work-week, you have been engaged with: \textcolor{blue}{administrative tasks} for \textbf{\textcolor{blue}{\emph{`r admin_perc` percent}}} of the time, which totaled `r admin_chh` hours.}
+      \end{minipage}
+      \end{tabular}
+      \end{center}
+      \end{table}
+      
+\begin{center}
+\Large{\textbf{Planning}}
+ \end{center}
+\begin{table}[h!]
+     \begin{center}
+     \begin{tabular}{m{10cm} m{7cm}}
+     \begin {minipage} {10cm}
+     \includegraphics[width=100mm, height=60mm]{planned_act_plot.jpg}
+     \end{minipage}
+      & 
+      \begin{minipage}{7cm}
+      \Large{As a proportion of total time spent over the work-week, you have been engaged with: \textcolor{blue}{planned tasks} for \textbf{\textcolor{blue}{\emph{`r planned_perc` percent}}} of the time, which totaled `r planned_chh` hours.}
+      \end{minipage}
+      \end{tabular}
+      \end{center}
+      \end{table}
+
+
+\begin{center}
+\Large{\textbf{Importance of Tasks}}
+ \end{center}
+\begin{table}[h!]
+     \begin{center}
+     \begin{tabular}{m{10cm} m{7cm}}
+     \begin {minipage} {10cm}
+     \includegraphics[width=100mm, height=60mm]{imp_act_s_plot.jpg}
+     \end{minipage}
+      & 
+      \begin{minipage}{7cm}
+      \Large{As a proportion of total time spent over the work-week, you have been engaged with: \textcolor{blue}{important tasks} for \textbf{\textcolor{blue}{\emph{`r imp_act_perc` percent}}} of the time, which totaled `r imp_act_chh` hours.}
+      \end{minipage}
+      \end{tabular}
+      \end{center}
+      \end{table}
+      
+  \hrulefill
+
+
+\newpage
+
+
+\begin{center}
+\huge{\textbf{Your Activities}}
+ \end{center}
+\begin{table}[h!]
+     \begin{center}
+     \begin{tabular}{m{7cm} m{1cm} m{7cm}}
+     \begin {minipage} {7cm}
+          \begin{center}
+      \textcolor{teal}{\textbf{\Large{Important Work (`r imp_act_perc` percent of your time)}}}
+     \end{center}
+     \end{minipage}
+      & 
+      \begin{minipage}{1cm}
+      \end{minipage}
+      &
+      \begin{minipage}{7cm}
+           \begin{center}
+      \textcolor{cyan}{\textbf{\Large{Unimportant Work (`r 100-imp_act_perc` percent of your time)}}}
+      \end{center} 
+      \end{minipage}
+      \end{tabular}
+      \end{center}
+      \end{table}
+  \hrulefill
+      
+   \begin{center}
+    \Large{\textbf{Projects}}
+    \end{center}
+    \begin{table}[h!]
+     \begin{center}
+     \begin{tabular}{m{4cm} m{3.5cm} m{4cm} m{3.5cm}}
+          \begin {minipage} {4cm}
+              \includegraphics[width=40mm, height=40mm]{cat_proj_pie2.jpg}
+         \end{minipage}
+    &
+              \begin {minipage} {3.5cm}
+      \large{\textit{Among work you classified as important, \textbf{\textcolor{teal}{`r cat_proj2_p` percent}} were \textbf{\textcolor{teal}{analytical projects}}.}}
+             \end{minipage}
+      &
+            \begin {minipage} {4cm}
+    \includegraphics[width=40mm, height=40mm]{cat_proj_pie1.jpg}
+     \end{minipage}
+      &
+     \begin {minipage} {3.5cm}
+      \large{\textit{Among work you classified as unimportant, \textbf{\textcolor{cyan}{`r cat_proj1_p` percent}} were \textbf{\textcolor{cyan}{analytical projects}}.}}
+               \end{minipage}
+      \end{tabular}
+      \end{center}
+      \end{table}
+
+
+   \begin{center}
+    \Large{\textbf{Administrative vs Project Related}}
+    \end{center}
+    \begin{table}[h!]
+     \begin{center}
+     \begin{tabular}{m{4cm} m{3.5cm} m{4cm} m{3.5cm}}
+     \begin {minipage} {5cm}
+         \includegraphics[width=40mm, height=40mm]{admin_act_pie2.jpg}
+              \end{minipage}
+              &
+      \begin {minipage} {3.5cm}
+    \large{\textit{Among work you classified as important, \textbf{\textcolor{teal}{`r admin_act2_p` percent}} was \textbf{\textcolor{teal}{project related work}}.}}
+     \end{minipage}
+      & 
+      \begin{minipage}{4cm}
+          \includegraphics[width=40mm, height=40mm]{admin_act_pie1.jpg}
+      \end{minipage}
+      &
+      \begin{minipage}{3.5cm}
+      \large{\textit{Among work you classified as unimportant, \textbf{\textcolor{cyan}{`r admin_act1_p` percent}} was \textbf{\textcolor{cyan}{administrative work}}.}}
+      \end{minipage}
+      \end{tabular}
+      \end{center}
+      \end{table}
+      
+  \begin{center}
+    \Large{\textbf{Meetings vs Independent Work}}
+    \end{center}
+    \begin{table}[h!]
+     \begin{center}
+     \begin{tabular}{m{4cm} m{3.5cm} m{4cm} m{3.5cm}}
+     \begin {minipage} {4cm}
+         \includegraphics[width=40mm, height=40mm]{withsomeone_pie2.jpg}
+         \end{minipage}
+         &
+         \begin {minipage} {3.5cm}
+    \large{\textit{Among work you classified as important, \textbf{\textcolor{teal}{`r withsomeone2_p` percent}} was \textbf{\textcolor{teal}{independent work}}.}}
+     \end{minipage}
+      &
+      \begin{minipage}{4cm}
+          \includegraphics[width=40mm, height=40mm]{withsomeone_pie1.jpg}
+            \end{minipage}
+            &
+       \begin{minipage}{3.5cm}
+      \large{\textit{Among work you classified as unimportant, \textbf{\textcolor{cyan}{`r withsomeone1_p` percent}} were \textbf{\textcolor{cyan}{meetings}}.}}
+      \end{minipage}
+      \end{tabular}
+      \end{center}
+      \end{table}
+      
+  \newpage
+\begin{table}[h!]
+     \begin{center}
+     \begin{tabular}{m{7cm} m{1cm} m{7cm}}
+     \begin {minipage} {7cm}
+          \begin{center}
+      \textcolor{teal}{\textbf{\Large{Important Work (`r imp_act_perc` percent of your time)}}}
+     \end{center}
+     \end{minipage}
+      & 
+      \begin{minipage}{1cm}
+      \end{minipage}
+      &
+      \begin{minipage}{7cm}
+           \begin{center}
+      \textcolor{cyan}{\textbf{\Large{Unimportant Work (`r 100-imp_act_perc` percent of your time)}}}
+      \end{center} 
+      \end{minipage}
+      \end{tabular}
+      \end{center}
+      \end{table}
+  \hrulefill
+
+
+  \begin{center}
+    \Large{\textbf{Planned vs Unplanned}}
+    \end{center}
+    \begin{table}[h!]
+     \begin{center}
+     \begin{tabular}{m{4cm} m{3.5cm} m{4cm} m{3.5cm}}
+     \begin {minipage} {7cm}
+         \includegraphics[width=40mm, height=40mm]{plan_act_pie2.jpg}
+     \end{minipage}
+     &
+     \begin {minipage} {3.5cm}
+    \large{\textit{Among work you classified as important, \textbf{\textcolor{teal}{`r plan_act2_p` percent}} were \textbf{\textcolor{teal}{planned}}.}}
+     \end{minipage}
+      &
+      \begin{minipage}{4cm}
+          \includegraphics[width=40mm, height=40mm]{plan_act_pie1.jpg}
+      \end{minipage}
+      &
+      \begin{minipage}{3.5cm}
+      \large{\textit{Among work you classified as unimportant, \textbf{\textcolor{cyan}{`r plan_act1_p` percent}} were \textbf{\textcolor{cyan}{unplanned}}.}}
+      \end{minipage}
+      \end{tabular}
+      \end{center}
+      \end{table}
+
+
+  \begin{center}
+    \Large{\textbf{Activity Type}}
+    \end{center}
+    \begin{table}[h!]
+     \begin{center}
+     \begin{tabular}{m{4cm} m{3.5cm} m{4cm} m{3.5cm}}
+     \begin {minipage} {4cm}
+         \includegraphics[width=40mm, height=40mm]{type_pie2.jpg}
+     \end{minipage}
+     &
+     \begin {minipage} {3.5cm}
+    \large{\textit{Among work you classified as important, \textbf{\textcolor{teal}{`r type_pie2_p` percent}} were \textbf{\textcolor{teal}{`r type_pie2_n`}}.}}
+     \end{minipage}
+      & 
+      \begin{minipage}{4cm}
+    \includegraphics[width=40mm, height=40mm]{type_pie1.jpg}
+      \end{minipage}
+      &
+      \begin{minipage}{3.5cm}
+      \large{\textit{Among work you classified as unimportant, \textbf{\textcolor{cyan}{`r type_pie1_p` percent}} were \textbf{\textcolor{cyan}{`r type_pie1_n`}}.}}
+      \end{minipage}
+      \end{tabular}
+      \end{center}
+      \end{table}

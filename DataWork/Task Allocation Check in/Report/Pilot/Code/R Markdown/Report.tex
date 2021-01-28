@@ -1,0 +1,676 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  a4paper]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[left=0cm,right=0.2cm,top=1cm,bottom=0.5cm]{geometry}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{fancyhdr} \usepackage{xcolor} \usepackage{librebaskerville} \usepackage[fontsize=10pt]{scrextend} \usepackage{float} \restylefloat{table} \usepackage{multicol} \usepackage{wrapfig} \usepackage{mathptmx} \usepackage{caption} \usepackage{lipsum} \usepackage{graphicx} \usepackage{caption} \usepackage{array} \usepackage{enumitem} \usepackage{booktabs} \usepackage{tabularx} \usepackage{colortbl} \usepackage{datetime} \usepackage[default,oldstyle,scale=0.95]{opensans} \renewcommand{\headrulewidth}{0pt} \fancypagestyle{plain}{\pagestyle{fancy}} \setlength{\headheight}{12 pt} \setlength{\textheight}{0.9\textheight} \pagenumbering{gobble} \setlength{\belowcaptionskip}{-10pt} \captionsetup{belowskip=0pt} \setlength{\parskip}{0cm} \setlength{\parindent}{0cm} \graphicspath{ {"C:/Users/wb522556/WBG/Vincenzo Di Maro - Agile/06 - Agile Productivity Radar/DataWork/Task Allocation Check in/Report/Pilot/Outputs/Raw/"} } \newcommand{\hideFromPandoc}[1] \hideFromPandoc{ \let\Begin\begin \let\End\end }
+% https://github.com/rstudio/rmarkdown/issues/337
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+% https://github.com/rstudio/rmarkdown/pull/252
+\usepackage{titling}
+\setlength{\droptitle}{-2em}
+
+\pretitle{\vspace{\droptitle}\centering\huge}
+\posttitle{\par}
+
+\preauthor{\centering\large\emph}
+\postauthor{\par}
+
+\predate{\centering\large\emph}
+\postdate{\par}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+\date{}
+
+\begin{document}
+
+\begin{center}
+     \begin {minipage} {20cm}
+               \begin{center}
+               \includegraphics[height=40mm]{head.jpg} \\
+                       \Large{Vincenzo Di Maro || Between 12-02-2019 to 12-18-2019}
+               \end{center}
+        \end{minipage}
+        \end{center}
+
+\begin{table}[H]
+     \begin{center}
+     \begin{tabular}{m{6cm} m{6cm} m{6cm}}
+     \begin {minipage} {6cm}
+               \begin{center}
+               \includegraphics[width=30mm, height=30mm]{icon1.jpg} \\
+          \Large{\textbf{51 percent}} \linebreak{\large{ of your time was spent on}} \linebreak{\Large{\textbf{Technical work.}}} \\
+          \vspace{10mm}
+     \includegraphics[width=30mm, height=30mm]{icon4.jpg} \\
+          \Large{\textbf{82 percent}} \linebreak{\large{of your time was spent on}} \linebreak{\Large{\textbf{Meetings.}}}
+          \end{center}
+     \end{minipage}
+      &
+     \begin {minipage} {6cm}
+               \begin{center}
+               \includegraphics[width=30mm, height=30mm]{icon2.jpg} \\
+             \Large{\textbf{88 percent}} \linebreak{\large{of your time was spent on}} \linebreak{\Large{\textbf{Important work.}}} \\
+             \vspace{10mm}
+     \includegraphics[width=30mm, height=30mm]{icon6.jpg} \\
+          \Large{\textbf{92 percent}} \linebreak{\large{of your time was spent on}} \linebreak{\Large{\textbf{Planned work.}}}
+          \end{center}
+     \end{minipage}
+     &
+     \begin {minipage} {6cm}
+          \begin{center}
+               \includegraphics[width=30mm, height=30mm]{icon3.jpg} \\
+         \Large{\textbf{85 percent}} \linebreak{\large{of your time was spent on}} \linebreak{\Large{\textbf{Analytical projects.}}} \\
+         \vspace{10mm}
+     \includegraphics[width=30mm, height=30mm]{icon5.jpg} \\
+          \Large{\textbf{2 hours}} \linebreak{\large{was the average duration of}} \linebreak{\Large{\textbf{your tasks.}}}
+          \end{center}
+     \end{minipage} \\
+          \vspace{1mm} \\
+           \hline
+           \vspace{1mm}
+      \end{tabular}
+           \begin{tabular}{m{2cm} m{6cm} m{6cm} m{2cm}}
+      \multicolumn{4}{c}{\Large{How you described your activities | Word cloud}} \\
+      \begin{minipage} {2cm}
+     \includegraphics[width=20mm, height=60mm]{icon7.jpg}     
+     \end{minipage}
+     &
+     \begin {minipage} {6cm}
+     \includegraphics[trim=80 80 80 80, clip, width=60mm, height=60mm]{wordcloud.pdf}     
+     \end{minipage}
+      & 
+      \begin{minipage}{6cm}
+      \begin{flushleft}
+      \Large{\textbf{designing}} \linebreak{\large{were your most popular words to describe your activities.}}
+      \end{flushleft}
+      \end{minipage}
+      &
+      \begin{minipage} {2cm}
+     \includegraphics[width=20mm, height=60mm]{icon8.jpg}     
+     \end{minipage}
+      \end{tabular}
+      \end{center}
+      \end{table}
+
+\begin{center}
+  \includegraphics[height=0.2in]{all_logos.jpg} \\
+  \small{Produced on \today\ \currenttime}
+  \end{center}
+
+\newpage
+
+\begin{table}[H]
+     \begin{center}
+     \begin{tabular}{m{11cm} m{7cm}}
+     \begin {minipage} {11cm}
+     \begin{center}
+      \Large{\textbf{Meetings}} \\
+     \includegraphics[width=110mm, height=60mm]{withsomeone_plot.pdf} 
+          \end{center}
+     \end{minipage}
+      & 
+      \begin{minipage}{7cm}
+      \huge{\textbf{12 hours}} \\
+       \large{in a week (on average)} \\
+      \Large{\textbf{on Meetings}} \\
+      \vspace{1mm} \\
+      \Large{i.e. \textbf{82 percent} of your total time recorded.}
+      \end{minipage} \\
+      \hline
+      \vspace{0.1mm}
+      \end{tabular}
+      \begin{tabular}{m{7cm} m{11cm}}
+      \begin{minipage}{7cm}
+      \huge{\textbf{10 hours}} \\
+       \large{in a week (on average)} \\
+      \Large{\textbf{on Developing future projects}} \\
+      \vspace{1mm} \\
+      \Large{i.e. \textbf{69 percent} of your total time recorded.}
+      \end{minipage}
+      &
+      \begin {minipage} {11cm}
+      \begin{center}
+      \Large{\textbf{Activity Type}} \\
+     \includegraphics[width=110mm, height=60mm]{type_act_plot.pdf}
+          \end{center}
+     \end{minipage} \\
+      \hline
+      \vspace{0.1mm}
+      \end{tabular}
+    \begin{tabular}{m{11cm} m{7cm}}
+     \begin {minipage} {11cm}
+     \begin{center}
+     \Large{\textbf{Project Category}} \\
+     \includegraphics[width=110mm, height=60mm]{cat_proj_plot.pdf}
+     \end{center}
+     \end{minipage}
+      & 
+      \begin{minipage}{7cm}
+      \huge{\textbf{12 hours}} \\
+       \large{in a week (on average)} \\
+      \Large{\textbf{on Analytical projects.}} \\
+      \vspace{1mm} \\
+      \Large{i.e. \textbf{85 percent} of your total time recorded.}
+      \end{minipage} \\
+      \hline
+      \vspace{0.1mm}
+      \end{tabular}
+      \begin{tabular}{m{7cm} m{11cm}}
+      \begin{minipage}{7cm}
+      \huge{\textbf{7 hours}} \\
+       \large{in a week (on average)} \\
+      \Large{\textbf{on Technical work.}} \\
+      \vspace{1mm} \\
+      \Large{i.e. \textbf{51 percent} of your total time recorded.}
+      \end{minipage}
+      &
+     \begin {minipage} {11cm}
+          \begin{center}
+     \Large{\textbf{Administrative vs Technical}} \\
+     \includegraphics[width=110mm, height=60mm]{admin_act_plot.pdf}
+     \end{center}
+     \end{minipage} \\
+      \hline
+      \vspace{0.1mm}
+      \end{tabular}
+      \end{center}
+      \end{table}
+
+\newpage
+
+\begin{table}[H]
+     \begin{center}
+           \begin{tabular}{m{11cm} m{7cm}}
+    \begin {minipage} {11cm}
+        \begin{center}
+     \Large{\textbf{Planned vs Unplanned}} \\
+     \includegraphics[width=110mm, height=60mm]{planned_act_plot.pdf}
+     \end{center}
+     \end{minipage}
+      &
+    \begin{minipage}{7cm}
+          \huge{\textbf{13 hours}} \\
+       \large{in a week (on average)} \\
+      \Large{\textbf{on Planned tasks.}} \\
+      \vspace{1mm} \\
+      \Large{i.e. \textbf{92 percent} of your total time recorded.}
+      \end{minipage} \\
+      \hline
+      \vspace{0.1mm}
+      \end{tabular}
+           \begin{tabular}{m{7cm} m{11cm}}
+    \begin{minipage}{7cm}
+      \huge{\textbf{12 hours}} \\
+       \large{in a week (on average)} \\
+      \Large{\textbf{on Important tasks.}} \\
+      \vspace{1mm} \\
+      \Large{i.e. \textbf{88 percent} of your total time recorded.}
+      \end{minipage}
+      & 
+    \begin {minipage} {11cm}
+    \begin{center}
+     \Large{\textbf{Importance of Tasks}} \\
+     \includegraphics[width=110mm, height=60mm]{imp_act_s_plot.pdf}
+     \end{center}
+     \end{minipage} \\
+     \hline
+      \end{tabular}
+      \end{center}
+      \end{table}
+
+\newpage
+
+\definecolor{Blue}{rgb}{0,0.7,1}
+\definecolor{MidnightBlue}{rgb}{0.1,0.1,0.4}
+
+\begin{table}[H]
+     \begin{center}
+          \huge{\textbf{Your Activities}} \\
+          \vspace{1mm}
+          \end{center}
+          \begin{center}
+     \begin{tabular}{m{8cm} m{1cm}  m{8cm}}
+     \fcolorbox{MidnightBlue}{MidnightBlue}{
+     \begin {minipage} {8cm}
+          \begin{center}
+    \textbf{\Large{\textcolor{white}{Important Work (88 percent of your time)}}}
+     \end{center}
+     \end{minipage}}
+      & 
+      \begin{minipage}{1cm}
+      \end{minipage}
+      &
+      \fcolorbox{Blue}{Blue}{
+      \begin{minipage}{8cm}
+           \begin{center}
+      \textbf{\Large{Unimportant Work (12 percent of your time)}}
+      \end{center} 
+      \end{minipage}} \\
+      \vspace{0.2mm}
+      \end{tabular}
+     \noindent\begin{tabular}{m{4cm} m{3.5cm} m{0.5cm} || m{0.5cm} m{3.5cm} m{4cm}}
+      \multicolumn{6}{c}{\Large{\textbf{\underline{Activity Type}}}} \\
+           \vspace{1mm} 
+     \begin {minipage} {4cm}
+         \includegraphics[width=40mm, height=40mm]{type_pie2.pdf}
+     \end{minipage}
+     &
+     \begin {minipage} {3.5cm}
+      \begin{flushright}
+      \Large{\underline{\textbf{\textcolor{MidnightBlue}{78 percent}}}} \\
+            \small{of your important activities were spent} \\
+        \vspace{3mm} 
+      \large{on Developing future projects} 
+      \end{flushright}
+     \end{minipage}
+       &
+          \begin{minipage} {0.5cm}
+          \end{minipage}
+      &
+        \begin{minipage} {0.5cm}
+          \end{minipage}
+          &
+      \begin{minipage}{3.5cm}
+      \begin{flushleft}
+      \Large{\underline{\textbf{\textcolor{Blue}{43 percent}}}} \\
+            \small{of your unimportant activities were spent} \\
+        \vspace{3mm} 
+      \large{on Hiring or recruitment} 
+      \end{flushleft}
+      \end{minipage}
+      &
+      \begin{minipage}{4cm}
+          \includegraphics[width=40mm, height=40mm]{type_pie1.pdf}
+      \end{minipage} \\
+      \hline
+           \vspace{1mm} 
+      \end{tabular}
+           \noindent\begin{tabular}{m{4cm} m{3.5cm} m{0.5cm} || m{0.5cm} m{3.5cm} m{4cm}}
+     \multicolumn{6}{c}{\Large{\underline{\textbf{Projects}}}} \\
+     \vspace{1mm} 
+          \begin {minipage} {4cm}
+      \includegraphics[width=40mm, height=40mm]{cat_proj_pie2.pdf}
+         \end{minipage}
+          &
+        \begin {minipage} {3.5cm}
+        \begin{flushright}
+      \Large{\underline{\textbf{\textcolor{MidnightBlue}{91 percent}}}} \\
+            \small{of your important activities were spent} \\
+        \vspace{3mm} 
+      \large{on Analytical Projects}
+      \end{flushright}
+             \end{minipage}
+       &
+          \begin{minipage} {0.5cm}
+          \end{minipage}
+      &
+        \begin{minipage} {0.5cm}
+          \end{minipage}
+          &
+            \begin {minipage} {3.5cm}
+      \begin{flushleft}
+      \Large{\underline{\textbf{\textcolor{Blue}{62 percent}}}}
+            \small{of your unimportant activities were spent} \\
+                    \vspace{3mm} 
+      \large{on Other Projects} 
+      \end{flushleft}
+     \end{minipage}
+      &
+     \begin {minipage} {4cm}
+    \includegraphics[width=40mm, height=40mm]{cat_proj_pie1.pdf}
+      \end{minipage} \\
+      \hline
+           \vspace{1mm} 
+      \end{tabular}
+           \noindent\begin{tabular}{m{4cm} m{3.5cm} m{0.5cm} || m{0.5cm} m{3.5cm} m{4cm}}
+      \multicolumn{6}{c}{\Large{\underline{\textbf{Administrative vs Technical}}}} \\
+               \vspace{1mm} 
+     \begin {minipage} {4cm}
+         \includegraphics[width=40mm, height=40mm]{admin_act_pie2.pdf}
+              \end{minipage}
+              &
+      \begin {minipage} {3.5cm}
+      \begin{flushright}
+      \Large{\underline{\textbf{\textcolor{MidnightBlue}{53 percent}}}} \\
+            \small{of your important activities were spent} \\
+                    \vspace{3mm} 
+      \large{on Technical Work}
+      \end{flushright}
+     \end{minipage}
+       &
+          \begin{minipage} {0.5cm}
+          \end{minipage}
+      &
+        \begin{minipage} {0.5cm}
+          \end{minipage}
+          &
+      \begin{minipage}{3.5cm}
+      \begin{flushleft}
+      \Large{\underline{\textbf{\textcolor{Blue}{52 percent}}}} \\
+            \small{of your unimportant activities were spent on} \\
+                    \vspace{3mm} 
+      \large{on Administrative Work} 
+      \end{flushleft}
+      \end{minipage}
+      &
+      \begin{minipage}{4cm}
+                \includegraphics[width=40mm, height=40mm]{admin_act_pie1.pdf}
+      \end{minipage} \\
+      \hline
+           \vspace{1mm} 
+      \end{tabular} 
+                 \noindent\begin{tabular}{m{4cm} m{3.5cm} m{0.5cm} || m{0.5cm} m{3.5cm} m{4cm}}
+      \multicolumn{6}{c}{\Large{\textbf{\underline{Meetings vs Independent Work}}}} \\
+           \vspace{1mm} 
+     \begin {minipage} {4cm}
+         \includegraphics[width=40mm, height=40mm]{withsomeone_pie2.pdf}
+         \end{minipage}
+         &
+         \begin {minipage} {3.5cm}
+          \begin{flushright}
+      \Large{\underline{\textbf{\textcolor{MidnightBlue}{84 percent}}}} \\
+      \small{of your important activities were spent} \\
+              \vspace{3mm} 
+      \large{on Meetings}
+      \end{flushright}
+     \end{minipage}
+       &
+          \begin{minipage} {0.5cm}
+          \end{minipage}
+      &
+        \begin{minipage} {0.5cm}
+          \end{minipage}
+          &
+      \begin{minipage}{3.5cm}
+            \begin{flushleft}
+      \Large{\underline{\textbf{\textcolor{Blue}{67 percent}}}} \\
+            \small{of your unimportant activities were spent} \\
+                    \vspace{3mm} 
+      \large{on Meetings}
+      \end{flushleft}
+          \end{minipage}
+            &
+       \begin{minipage}{4cm}
+                 \includegraphics[width=40mm, height=40mm]{withsomeone_pie1.pdf}
+      \end{minipage} \\
+      \hline
+           \vspace{1mm} 
+      \end{tabular}
+     \noindent\begin{tabular}{m{4cm} m{3.5cm} m{0.5cm} || m{0.5cm} m{3.5cm} m{4cm}}
+      \multicolumn{6}{c}{\Large{\textbf{\underline{Planned vs Unplanned Work}}}} \\
+           \vspace{1mm} 
+     \begin {minipage} {4cm}
+         \includegraphics[width=40mm, height=40mm]{plan_act_pie2.pdf}
+     \end{minipage}
+     &
+     \begin {minipage} {3.5cm}
+      \begin{flushright}
+      \Large{\underline{\textbf{\textcolor{MidnightBlue}{97 percent}}}} \\
+            \small{of your important activities were spent} \\
+                    \vspace{3mm} 
+      \large{on Planned Work}
+      \end{flushright}
+     \end{minipage}
+       &
+          \begin{minipage} {0.5cm}
+          \end{minipage}
+      &
+        \begin{minipage} {0.5cm}
+          \end{minipage}
+          &
+      \begin{minipage}{3.5cm}
+      \begin{flushleft}
+      \Large{\underline{\textbf{\textcolor{Blue}{52 percent}}}} \\
+            \small{of your unimportant activities were spent on} \\
+                    \vspace{3mm} 
+      \large{on Planned Work} 
+      \end{flushleft}
+      \end{minipage}
+      &
+      \begin{minipage}{4cm}
+                \includegraphics[width=40mm, height=35mm]{plan_act_pie1.pdf}
+      \end{minipage}
+      \end{tabular}
+      \end{center}
+      \end{table}
+
+\newpage
+
+\begin{center}
+  \Huge{Your Data at a Glance}
+  \end{center}
+  \hrulefill
+
+\begin{center}
+  \large{\textbf{The projects you worked on}}
+  \end{center}
+
+\begin{table}[H]
+\centering\begingroup\fontsize{9}{11}\selectfont
+
+\begin{tabular}{>{}c|>{\bfseries}c>{}c|>{\bfseries}c>{}c|>{\bfseries}c>{}c|>{\bfseries}c>{}c|>{\bfseries}c>{}c|}
+\toprule
+\multicolumn{1}{c}{\textbf{ }} & \multicolumn{2}{c}{\textbf{Instances}} & \multicolumn{2}{c}{\textbf{Frequency (\%)}} & \multicolumn{2}{c}{\textbf{Total Time (hrs)}} & \multicolumn{2}{c}{\textbf{Average Time (hrs)}} & \multicolumn{2}{c}{\textbf{Total Time (\%)}} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5} \cmidrule(l{3pt}r{3pt}){6-7} \cmidrule(l{3pt}r{3pt}){8-9} \cmidrule(l{3pt}r{3pt}){10-11}
+Category & Your Data & All Data & Your Data & All Data & Your Data & All Data & Your Data & All Data & Your Data & All Data\\
+\midrule
+Analytical & 21 & 170 & 70 & 72.65 & 38.65 & 312.95 & 1.84 & 1.84 & 85.09 & NA\\
+Other & 9 & 57 & 30 & 24.36 & 6.77 & 82.40 & 0.75 & 1.45 & 14.91 & NA\\
+\bottomrule
+\end{tabular}
+\endgroup{}
+\end{table}
+\hrulefill
+
+\begin{center}
+  \large{\textbf{Your Meetings vs Independent Work}}
+  \end{center}
+
+\begin{table}[H]
+\centering\begingroup\fontsize{9}{11}\selectfont
+
+\begin{tabular}{>{}c|>{\bfseries}c>{}c|>{\bfseries}c>{}c|>{\bfseries}c>{}c|>{\bfseries}c>{}c|>{\bfseries}c>{}c|}
+\toprule
+\multicolumn{1}{c}{\textbf{ }} & \multicolumn{2}{c}{\textbf{Instances}} & \multicolumn{2}{c}{\textbf{Frequency (\%)}} & \multicolumn{2}{c}{\textbf{Total Time (hrs)}} & \multicolumn{2}{c}{\textbf{Average Time (hrs)}} & \multicolumn{2}{c}{\textbf{Total Time (\%)}} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5} \cmidrule(l{3pt}r{3pt}){6-7} \cmidrule(l{3pt}r{3pt}){8-9} \cmidrule(l{3pt}r{3pt}){10-11}
+Category & Your Data & All Data & Your Data & All Data & Your Data & All Data & Your Data & All Data & Your Data & All Data\\
+\midrule
+Meetings & 21 & 111 & 70 & 47.64 & 37.33 & 199.02 & 1.78 & 1.79 & 82.18 & NA\\
+Independent work & 9 & 122 & 30 & 52.36 & 8.10 & 204.11 & 0.90 & 1.67 & 17.82 & NA\\
+\bottomrule
+\end{tabular}
+\endgroup{}
+\end{table}
+\hrulefill
+
+\begin{center}
+  \large{\textbf{Your Administrative vs Technical Work}}
+  \end{center}
+
+\begin{table}[H]
+\centering\begingroup\fontsize{9}{11}\selectfont
+
+\begin{tabular}{>{}c|>{\bfseries}c>{}c|>{\bfseries}c>{}c|>{\bfseries}c>{}c|>{\bfseries}c>{}c|>{\bfseries}c>{}c|}
+\toprule
+\multicolumn{1}{c}{\textbf{ }} & \multicolumn{2}{c}{\textbf{Instances}} & \multicolumn{2}{c}{\textbf{Frequency (\%)}} & \multicolumn{2}{c}{\textbf{Total Time (hrs)}} & \multicolumn{2}{c}{\textbf{Average Time (hrs)}} & \multicolumn{2}{c}{\textbf{Total Time (\%)}} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5} \cmidrule(l{3pt}r{3pt}){6-7} \cmidrule(l{3pt}r{3pt}){8-9} \cmidrule(l{3pt}r{3pt}){10-11}
+Category & Your Data & All Data & Your Data & All Data & Your Data & All Data & Your Data & All Data & Your Data & All Data\\
+\midrule
+Administrative & 9 & 57 & 30 & 24.36 & 19.27 & 72.22 & 2.14 & 1.27 & 42.43 & NA\\
+Technical & 18 & 141 & 60 & 60.26 & 23.14 & 267.02 & 1.29 & 1.89 & 50.94 & NA\\
+Other & 3 & 36 & 10 & 15.38 & 3.01 & 63.89 & 1.00 & 1.77 & 6.62 & NA\\
+\bottomrule
+\end{tabular}
+\endgroup{}
+\end{table}
+\hrulefill
+
+\begin{center}
+  \large{\textbf{Your Planned vs Unplanned Work}}
+  \end{center}
+
+\begin{table}[H]
+\centering\begingroup\fontsize{9}{11}\selectfont
+
+\begin{tabular}{>{}c|>{\bfseries}c>{}c|>{\bfseries}c>{}c|>{\bfseries}c>{}c|>{\bfseries}c>{}c|>{\bfseries}c>{}c|}
+\toprule
+\multicolumn{1}{c}{\textbf{ }} & \multicolumn{2}{c}{\textbf{Instances}} & \multicolumn{2}{c}{\textbf{Frequency (\%)}} & \multicolumn{2}{c}{\textbf{Total Time (hrs)}} & \multicolumn{2}{c}{\textbf{Average Time (hrs)}} & \multicolumn{2}{c}{\textbf{Total Time (\%)}} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5} \cmidrule(l{3pt}r{3pt}){6-7} \cmidrule(l{3pt}r{3pt}){8-9} \cmidrule(l{3pt}r{3pt}){10-11}
+Category & Your Data & All Data & Your Data & All Data & Your Data & All Data & Your Data & All Data & Your Data & All Data\\
+\midrule
+Unplanned & 4 & 44 & 13.33 & 18.80 & 3.76 & 45.21 & 0.94 & 1.03 & 8.27 & NA\\
+Planned & 26 & 187 & 86.67 & 79.91 & 41.67 & 354.91 & 1.60 & 1.90 & 91.73 & NA\\
+\bottomrule
+\end{tabular}
+\endgroup{}
+\end{table}
+\hrulefill
+
+\begin{center}
+  \large{\textbf{Your Important vs Unimportant Work}}
+  \end{center}
+
+\begin{table}[H]
+\centering\begingroup\fontsize{9}{11}\selectfont
+
+\begin{tabular}{>{}c|>{\bfseries}c>{}c|>{\bfseries}c>{}c|>{\bfseries}c>{}c|>{\bfseries}c>{}c|>{\bfseries}c>{}c|}
+\toprule
+\multicolumn{1}{c}{\textbf{ }} & \multicolumn{2}{c}{\textbf{Instances}} & \multicolumn{2}{c}{\textbf{Frequency (\%)}} & \multicolumn{2}{c}{\textbf{Total Time (hrs)}} & \multicolumn{2}{c}{\textbf{Average Time (hrs)}} & \multicolumn{2}{c}{\textbf{Total Time (\%)}} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5} \cmidrule(l{3pt}r{3pt}){6-7} \cmidrule(l{3pt}r{3pt}){8-9} \cmidrule(l{3pt}r{3pt}){10-11}
+Category & Your Data & All Data & Your Data & All Data & Your Data & All Data & Your Data & All Data & Your Data & All Data\\
+\midrule
+Mostly unimportant & 3 & 21 & 10.00 & 8.90 & 3.01 & 24.26 & 1.00 & 1.16 & 6.62 & NA\\
+Slightly unimportant & 3 & 25 & 10.00 & 10.59 & 2.26 & 28.54 & 0.75 & 1.14 & 4.97 & NA\\
+Slightly important & 5 & 67 & 16.67 & 28.39 & 4.52 & 108.02 & 0.90 & 1.61 & 9.94 & NA\\
+Mostly important & 18 & 67 & 60.00 & 28.39 & 34.14 & 151.71 & 1.90 & 2.26 & 75.17 & NA\\
+Very important & 1 & 56 & 3.33 & 23.73 & 1.50 & 90.60 & 1.50 & 1.62 & 3.31 & NA\\
+\bottomrule
+\end{tabular}
+\endgroup{}
+\end{table}
+
+\newpage
+
+\begin{center}
+  \large{\textbf{All your data}}
+  \end{center}
+
+\begin{table}[H]
+\centering\begingroup\fontsize{9}{11}\selectfont
+
+\resizebox{\linewidth}{!}{
+\begin{tabular}{lllllr}
+\toprule
+Activity Description & Meetings & Project Category & Administrative Work & Importance & Duration (hrs)\\
+\midrule
+Attending workshop & Meetings & Analytical & Other & Mostly important & 1.50\\
+Hiring & Independent work & Other & Administrative & Slightly important & 1.01\\
+Interviews & Meetings & Other & Administrative & Slightly unimportant & 1.00\\
+Designing workshop & Meetings & Analytical & Technical & Mostly important & 1.00\\
+Hiring & Independent work & Other & Administrative & Slightly unimportant & 0.75\\
+\addlinespace
+Interpreting findings & Meetings & Analytical & Technical & Mostly important & 1.49\\
+Designing survey & Meetings & Analytical & Technical & Mostly important & 1.50\\
+Recruitment & Independent work & Other & Administrative & Slightly unimportant & 0.50\\
+Recruitment & Independent work & Other & Administrative & Mostly unimportant & 0.50\\
+Designing survey & Meetings & Analytical & Technical & Mostly important & 1.34\\
+\addlinespace
+Managing team & Meetings & Other & Administrative & Slightly important & 0.25\\
+Designing research program & Independent work & Analytical & Technical & Mostly important & 0.75\\
+survey design & Independent work & Analytical & Technical & Mostly important & 0.75\\
+Recruitment & Meetings & Other & Administrative & Slightly important & 1.50\\
+Designing survey & Meetings & Analytical & Technical & Mostly important & 1.00\\
+\addlinespace
+Staff meeting & Meetings & Other & Administrative & Slightly important & 0.75\\
+brainstorming & Meetings & Analytical & Technical & Mostly important & 1.99\\
+Writing research proposal & Independent work & Analytical & Technical & Mostly important & 2.17\\
+Survey design & Meetings & Analytical & Technical & Mostly important & 1.25\\
+Survey design & Meetings & Analytical & Technical & Mostly important & 1.00\\
+\addlinespace
+Meeting & Meetings & Other & Other & Mostly unimportant & 0.50\\
+Survey design & Meetings & Analytical & Technical & Very important & 1.50\\
+Designing research project & Meetings & Analytical & Technical & Mostly important & 1.75\\
+Team meeting & Meetings & Analytical & Administrative & Mostly important & 13.00\\
+Designing research program & Independent work & Analytical & Technical & Mostly important & 0.99\\
+\addlinespace
+Workshop preparation & Meetings & Analytical & Technical & Mostly important & 0.99\\
+Corporate meeting & Meetings & Analytical & Technical & Mostly unimportant & 2.00\\
+Designing survey & Meetings & Analytical & Technical & Mostly important & 1.00\\
+Designing research program & Independent work & Analytical & Technical & Mostly important & 0.67\\
+Participation to seminar & Meetings & Analytical & Other & Slightly important & 1.00\\
+\bottomrule
+\end{tabular}}
+\endgroup{}
+\end{table}
+\hrulefill
+
+\end{document}
